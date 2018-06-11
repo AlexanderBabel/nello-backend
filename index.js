@@ -6,9 +6,8 @@ try {
 }
 
 const app = require('express')();
-const server = require('http').Server(app);
 const bodyParser = require('body-parser');
-const io = require('socket.io')(server);
+const io = require('socket.io')();
 const Chance = require('chance');
 
 const chance = new Chance();
@@ -29,24 +28,14 @@ app.listen(process.env.REST_PORT);
 
 io.on('connection', (socket) => {
     socket.on('getWebhook', (data) => {
-        for (let i = 0; i < clients.length; i++) {
-            if (data.locationId === clients[i].locationId) {
-                clients[i].socket = socket;
-                socket.broadcast.emit('webhook', {
-                    url: `${process.env.HOST_NAME}/callback/${clients[i].name}`
-                });
-            }
-        }
-
         const name = generateRandomWebhookName();
         clients.push({
             socket,
             name,
-            locationId: data.locationId
         });
 
-        socket.broadcast.emit('webhook', {
-            url: `${process.env.HOST_NAME}/callback/${clients[i].name}`
+        socket.emit('webhook', {
+            url: `${process.env.HOST_NAME}/callback/${name}`
         });
     });
 
@@ -63,6 +52,9 @@ io.on('connection', (socket) => {
         }
     });
 });
+
+io.serveClient(false);
+io.listen(process.env.SOCKET_PORT);
 
 function generateRandomWebhookName() {
     return `${chance.sentence({ words: 5 }).replace(/ /g, '-').toLowerCase().replace(/\./g, '')}-${chance.integer({ min: 0, max: 9999 })}`;
