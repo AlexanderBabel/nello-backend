@@ -7,7 +7,7 @@ try {
 
 const app = require('express')();
 const bodyParser = require('body-parser');
-const io = require('socket.io')();
+const io = require('socket.io')(process.env.SOCKET_PORT);
 const Chance = require('chance');
 
 const chance = new Chance();
@@ -52,9 +52,6 @@ io.on('connection', (socket) => {
         }
     });
 });
-
-io.serveClient(false);
-io.listen(process.env.SOCKET_PORT);
 
 function generateRandomWebhookName() {
     return `${chance.sentence({ words: 5 }).replace(/ /g, '-').toLowerCase().replace(/\./g, '')}-${chance.integer({ min: 0, max: 9999 })}`;
