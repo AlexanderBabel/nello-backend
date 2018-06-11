@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(function (req, res, next) {
     for (const client of clients) {
         if (`/callback/${client.name}` === req.path) {
-            client.socket.broadcast.emit('call', req.body);
+            client.socket.emit('call', req.body);
             res.status(200).send('OK');
             return;
         }
