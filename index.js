@@ -5,25 +5,25 @@ try {
     process.exit();
 }
 
-const Koa = require('koa');
-const koaBody = require('koa-body');
-const io = require('socket.io');
+const app = require('express')();
+const server = require('http').Server(app);
+const bodyParser = require('body-parser');
+const io = require('socket.io')(server);
 const Chance = require('chance');
 
-const app = new Koa();
 const chance = new Chance();
 const clients = [];
 
-app.use(koaBody());
-app.use((ctx) => {
+app.use(bodyParser.json());
+app.use(function (req, res, next) {
     for (const client of clients) {
-        if (client.name === `/callback/${ctx.request.path}`) {
-            client.socket.broadcast.emit('call', ctx.request.body);
+        if (client.name === `/callback/${req.path}`) {
+            client.socket.broadcast.emit('call', req.body);
             return;
         }
     }
 
-    ctx.body = "OK";
+    res.status(200).send('OK');
 });
 app.listen(process.env.REST_PORT);
 
@@ -63,7 +63,6 @@ io.on('connection', (socket) => {
         }
     });
 });
-io.listen(process.env.SOCKET_PORT);
 
 function generateRandomWebhookName() {
     return `${chance.sentence({ words: 5 }).replace(/ /g, '-').toLowerCase().replace(/\./g, '')}-${chance.integer({ min: 0, max: 9999 })}`;
