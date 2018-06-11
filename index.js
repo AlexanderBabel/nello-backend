@@ -7,7 +7,7 @@ try {
 
 const Koa = require('koa');
 const koaBody = require('koa-body');
-const io = require('socket.io')(process.env.SOCKET_PORT);
+const io = require('socket.io');
 const Chance = require('chance');
 
 const app = new Koa();
@@ -63,6 +63,7 @@ io.on('connection', (socket) => {
         }
     });
 });
+io.listen(process.env.SOCKET_PORT);
 
 function generateRandomWebhookName() {
     return `${chance.sentence({ words: 5 }).replace(/ /g, '-').toLowerCase().replace(/\./g, '')}-${chance.integer({ min: 0, max: 9999 })}`;
