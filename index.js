@@ -18,11 +18,12 @@ app.use(function (req, res, next) {
     for (const client of clients) {
         if (`/callback/${client.name}` === req.path) {
             client.socket.broadcast.emit('call', req.body);
+            res.status(200).send('OK');
             return;
         }
     }
 
-    res.status(200).send('OK');
+    res.status(404).send('Not Found');
 });
 app.listen(process.env.REST_PORT);
 
