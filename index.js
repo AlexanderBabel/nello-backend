@@ -16,7 +16,7 @@ const clients = [];
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
     for (const client of clients) {
-        if (client.name === `/callback/${req.path}`) {
+        if (`/callback/${client.name}` === req.path) {
             client.socket.broadcast.emit('call', req.body);
             return;
         }
