@@ -1,0 +1,17 @@
+{
+  "name": "nello-backend",
+  "version": "1.0.0",
+  "description": "A backend for the homebridge plugin homebridge-nello",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Alexander Babel",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.0.16",
+    "koa": "^2.5.1",
+    "koa-body": "^4.0.1",
+    "socket.io": "^2.1.1"
+  }
+}
