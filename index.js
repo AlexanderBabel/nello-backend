@@ -35,8 +35,10 @@ io.on('connection', socket => {
       name
     });
 
+    const { 'x-forwarded-proto': proto, host } = socket.handshake.headers;
+
     socket.emit('webhook', {
-      url: `${process.env.HOST_NAME}/callback/${name}`
+      url: `${proto}://${host}/callback/${name}`
     });
   });
 
