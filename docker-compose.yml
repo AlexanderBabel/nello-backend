@@ -3,7 +3,7 @@ services:
   nello:
     container_name: nello
     build: .
+    env_file:
+      - .env
     ports:
-      - '3338:3338'
-    environment:
-      - PORT=3338
+      - ${PORT}:${PORT}
