@@ -1,0 +1,8 @@
+version: '3.1'
+services:
+  nello:
+    contianer_name: nello
+    ports:
+      - '3338:3338'
+    env:
+      - PORT=3338
