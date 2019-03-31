@@ -3,6 +3,7 @@ services:
   nello:
     container_name: nello
     build: .
+    restart: always
     env_file:
       - .env
     ports:
