@@ -1,8 +1,9 @@
-version: '3.1'
+version: '3'
 services:
   nello:
-    contianer_name: nello
+    container_name: nello
+    build: .
     ports:
       - '3338:3338'
-    env:
+    environment:
       - PORT=3338
