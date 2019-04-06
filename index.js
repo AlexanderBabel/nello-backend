@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const app = require('express')();
 const bodyParser = require('body-parser');
 const server = require('http').createServer(app);
@@ -5,7 +6,7 @@ const io = require('socket.io')(server);
 const Chance = require('chance');
 
 const chance = new Chance();
-const clients = [];
+const clients = {};
 
 function generateRandomWebhookName() {
   return `${chance
@@ -15,43 +16,43 @@ function generateRandomWebhookName() {
     .replace(/\./g, '')}-${chance.integer({ min: 0, max: 9999 })}`;
 }
 
+function handleWebhook(socket) {
+  if (Date.now() - socket.lastUpdate < 10000) {
+    return;
+  }
+
+  if (!socket.callbackName) {
+    socket.callbackName = generateRandomWebhookName();
+    clients[socket.callbackName] = socket;
+    socket.lastUpdate = Date.now();
+  }
+
+  const { 'x-forwarded-proto': proto, host } = socket.handshake.headers;
+
+  socket.emit('webhook', {
+    url: `${proto}://${process.env.HOST || host}/callback/${socket.callbackName}`
+  });
+}
+
 app.use(bodyParser.json());
 app.use((req, res) => {
-  const client = clients.find(c => `/callback/${c.name}` === req.path);
+  const client = clients[req.path.replace('/callback/', '')];
   if (!client) {
     res.status(404).send('Not Found');
     return;
   }
 
-  client.socket.emit('call', req.body);
+  client.emit('call', req.body);
   res.status(200).send('OK');
 });
 
 io.on('connection', socket => {
-  socket.on('getWebhook', () => {
-    const name = generateRandomWebhookName();
-    clients.push({
-      socket,
-      name
-    });
-
-    const { 'x-forwarded-proto': proto, host } = socket.handshake.headers;
-
-    socket.emit('webhook', {
-      url: `${proto}://${process.env.HOST || host}/callback/${name}`
-    });
-  });
+  handleWebhook(socket);
+  socket.on('getWebhook', () => handleWebhook(socket));
 
   socket.on('disconnect', () => {
-    let index = -1;
-    for (let i = 0; i < clients.length; i += 1) {
-      if (clients[i].socket === socket) {
-        index = i;
-      }
-    }
-
-    if (index !== -1) {
-      clients.splice(index, 1);
+    if (socket.callbackName) {
+      delete clients[socket.callbackName];
     }
   });
 });
