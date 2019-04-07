@@ -7,4 +7,4 @@ services:
     env_file:
       - .env
     ports:
-      - 172.17.0.1:${PORT}:${PORT}
+      - ${HOST}:${PORT}:${PORT}
