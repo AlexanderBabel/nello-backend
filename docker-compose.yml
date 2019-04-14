@@ -6,5 +6,10 @@ services:
     restart: always
     env_file:
       - .env
-    ports:
-      - 172.17.0.1:${PORT}:${PORT}
+    environment:
+      - VIRTUAL_HOST=nello.alexdev.de,nello-socket.alexdev.de
+    networks:
+      - nginx
+networks:
+  nginx:
+    external: true
