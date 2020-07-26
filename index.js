@@ -30,7 +30,7 @@ function handleWebhook(socket) {
   const { 'x-forwarded-proto': proto, host } = socket.handshake.headers;
 
   socket.emit('webhook', {
-    url: `${proto}://${process.env.WEBHOOK_HOST || host}/callback/${socket.callbackName}`
+    url: `${proto}://${process.env.WEBHOOK_HOST || host}/callback/${socket.callbackName}`,
   });
 }
 
@@ -46,7 +46,7 @@ app.use((req, res) => {
   res.status(200).send('OK');
 });
 
-io.on('connection', socket => {
+io.on('connection', (socket) => {
   handleWebhook(socket);
   socket.on('getWebhook', () => handleWebhook(socket));
 
