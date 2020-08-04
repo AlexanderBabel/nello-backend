@@ -10,6 +10,7 @@
   ],
   "prepare": [
     "@semantic-release/changelog",
+    "@semantic-release/npm",
     {
       "path": "@semantic-release/exec",
       "cmd": "docker build -t docker.pkg.github.com/alexanderbabel/nello-backend/nello-backend ."
