@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.1.0...v1.2.0) (2020-08-04)
+
+
+### Features
+
+* add small info page ([133cec4](https://github.com/AlexanderBabel/nello-backend/commit/133cec4be5c3e4335282163c6ae6ed02b737cbe3))
+
 # [1.1.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.0.0...v1.1.0) (2020-08-04)
 
 
