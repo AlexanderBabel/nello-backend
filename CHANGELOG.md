@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/AlexanderBabel/nello-backend/compare/v1.2.0...v1.2.1) (2020-08-04)
+
+
+### Bug Fixes
+
+* **package.json:** bump to 1.2.1 ([7ce1729](https://github.com/AlexanderBabel/nello-backend/commit/7ce1729f4f78dc1415e0cc054e10bd2f3a9462ca))
+
 # [1.2.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.1.0...v1.2.0) (2020-08-04)
 
 
