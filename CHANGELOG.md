@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.2.1...v1.3.0) (2020-08-04)
+
+
+### Features
+
+* **ci:** add @semantic-release/npm ([cd99163](https://github.com/AlexanderBabel/nello-backend/commit/cd99163dfb4d0f7c902cc08b71ec013956d68155))
+
 ## [1.2.1](https://github.com/AlexanderBabel/nello-backend/compare/v1.2.0...v1.2.1) (2020-08-04)
 
 
