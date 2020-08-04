@@ -37,6 +37,19 @@ function handleWebhook(socket) {
 }
 
 app.use(express.text({ type: '*/*' }));
+
+app.get('/', (req, res) => {
+  res.send(`
+    <center style="margin-top: 40px;">
+      <h1>Nello Relay Backend</h1>
+      <h2>for <a href="https://github.com/lukasroegner/homebridge-nello">homebridge-nello</a></h2>
+      <br />
+      <strong>Version ${process.env.npm_package_version}</strong><br />
+      You can find the code for this project on <a href="https://github.com/AlexanderBabel/nello-backend">GitHub</a>.
+    </center>
+  `);
+});
+
 app.put('/callback/:clientId', (req, res) => {
   const client = clients[req.params.clientId];
 
