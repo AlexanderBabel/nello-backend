@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.3.0...v1.4.0) (2020-08-06)
+
+
+### Features
+
+* **ci:** update release workflow ([8777854](https://github.com/AlexanderBabel/nello-backend/commit/87778544bbf40dcd6143eaa0f8ca1d6d94cdcf51))
+
 # [1.3.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.2.1...v1.3.0) (2020-08-04)
 
 
