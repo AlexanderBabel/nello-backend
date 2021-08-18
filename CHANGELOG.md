@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/AlexanderBabel/nello-backend/compare/v1.4.1...v1.4.2) (2021-08-18)
+
+
+### Bug Fixes
+
+* trigger release ([aa4433c](https://github.com/AlexanderBabel/nello-backend/commit/aa4433cc25f94c9a4eead82078f035181e5c6d55))
+
 ## [1.4.1](https://github.com/AlexanderBabel/nello-backend/compare/v1.4.0...v1.4.1) (2021-08-18)
 
 
