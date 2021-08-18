@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/AlexanderBabel/nello-backend/compare/v1.4.0...v1.4.1) (2021-08-18)
+
+
+### Bug Fixes
+
+* update dependencies ([1b5ce5e](https://github.com/AlexanderBabel/nello-backend/commit/1b5ce5e5d543337a832ca0ed49c0786123940401))
+
 # [1.4.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.3.0...v1.4.0) (2020-08-06)
 
 
