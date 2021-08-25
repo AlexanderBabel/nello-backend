@@ -4,6 +4,6 @@ WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn --prod
 COPY . ./
-CMD ["yarn", "start"]
+CMD ["node", "index.js"]
 
 LABEL org.opencontainers.image.source="https://github.com/alexanderbabel/nello-backend/"
