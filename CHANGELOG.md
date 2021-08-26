@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.4.3...v1.5.0) (2021-08-26)
+
+
+### Features
+
+* add arm64 support ([1fff1f4](https://github.com/AlexanderBabel/nello-backend/commit/1fff1f48b9f695b0f2466fae963a7d8a13086a24))
+
 ## [1.4.3](https://github.com/AlexanderBabel/nello-backend/compare/v1.4.2...v1.4.3) (2021-08-25)
 
 
