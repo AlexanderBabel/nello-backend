@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const http = require('http');
 const express = require('express');
 const socketIo = require('socket.io');
+const { version } = require('./package.json');
 
 const app = express();
 const server = http.createServer(app);
@@ -44,7 +45,7 @@ app.get('/', (req, res) => {
       <h1>Nello Relay Backend</h1>
       <h2>for <a href="https://github.com/lukasroegner/homebridge-nello">homebridge-nello</a></h2>
       <br />
-      <strong>Version ${process.env.npm_package_version}</strong><br />
+      <strong>Version ${version || process.env.npm_package_version}</strong><br />
       You can find the code for this project on <a href="https://github.com/AlexanderBabel/nello-backend">GitHub</a>.
     </center>
   `);
