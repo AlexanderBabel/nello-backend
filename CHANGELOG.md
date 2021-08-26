@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/AlexanderBabel/nello-backend/compare/v1.5.0...v1.5.1) (2021-08-26)
+
+
+### Bug Fixes
+
+* retrieve version through another method ([74af3ec](https://github.com/AlexanderBabel/nello-backend/commit/74af3ec16b86d00cc9de4d67cc953c7782163206))
+
 # [1.5.0](https://github.com/AlexanderBabel/nello-backend/compare/v1.4.3...v1.5.0) (2021-08-26)
 
 
