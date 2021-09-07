@@ -5,7 +5,8 @@
   "description": "A backend for the homebridge plugin homebridge-nello",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "eslint ."
   },
   "author": "Alexander Babel",
   "license": "MIT",
