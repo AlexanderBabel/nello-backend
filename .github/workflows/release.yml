@@ -40,6 +40,9 @@ jobs:
       - name: Install dependencies
         run: yarn
 
+      - name: eslint check
+        run: yarn lint
+
       - name: Semantic release
         run: yarn semantic-release
         env:
