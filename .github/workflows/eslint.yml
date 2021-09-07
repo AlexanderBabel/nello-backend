@@ -1,0 +1,25 @@
+name: Check
+
+on:
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  eslint:
+    name: Eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: eslint check
+        run: yarn lint
