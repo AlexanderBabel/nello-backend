@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/AlexanderBabel/nello-backend/compare/v1.5.3...v1.5.4) (2021-10-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency socket.io to v4.3.1 ([865c9af](https://github.com/AlexanderBabel/nello-backend/commit/865c9af936489c492077ff6234af348ea4f5db87))
+
 ## [1.5.3](https://github.com/AlexanderBabel/nello-backend/compare/v1.5.2...v1.5.3) (2021-10-14)
 
 
