@@ -1,3 +1,10 @@
+## [1.5.7](https://github.com/AlexanderBabel/nello-backend/compare/v1.5.6...v1.5.7) (2021-12-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency express to v4.17.2 ([2e86a12](https://github.com/AlexanderBabel/nello-backend/commit/2e86a1284e0b93532bb77a83133777c0bf905075))
+
 ## [1.5.6](https://github.com/AlexanderBabel/nello-backend/compare/v1.5.5...v1.5.6) (2021-11-18)
 
 
